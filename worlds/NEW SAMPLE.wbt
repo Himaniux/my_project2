@@ -1,0 +1,1078 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.3383708467703484 0.3933707361518276 -0.8548477256185962 1.7815676784902288
+  position 6.686451337151299 2.4669659855288506 1.6488109238240214
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  translation -0.379839 0.0572674 -5.05151e-15
+  rotation 0 0 -1 1.02756
+  floorSize 13 22
+  floorAppearance Parquetry {
+    type "light strip"
+  }
+}
+Solid {
+  translation 6.51647 1.01846 0.068877
+  rotation -0.0009856957927703856 -0.0020772062926143883 -0.9999973568054177 0.8904900091270765
+  children [
+    DEF bdy Shape {
+      geometry Box {
+        size 0.1 0.4 0.05
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE bdy
+  physics Physics {
+    mass 1
+  }
+}
+Solid {
+  translation 3.768040963612973 1.5305913499808994 0.049215199852874
+  rotation -0.00010659596095301206 3.83563463000397e-05 -0.9999999935830458 0.6908088562634225
+  children [
+    Solid {
+      translation 0 0.01 0.05
+      children [
+        DEF bod Shape {
+          appearance PBRAppearance {
+          }
+          geometry Box {
+            size 0.13 0.39 0.002
+          }
+        }
+      ]
+      name "solid(2)"
+      boundingObject USE bod
+      physics Physics {
+        density 50
+        mass 1
+      }
+    }
+    DEF legs2 Solid {
+      translation 0 -0.16 0
+      children [
+        DEF legs Shape {
+          geometry Box {
+            size 0.1 0.01 0.1
+          }
+        }
+      ]
+      name "solid(1)"
+      boundingObject USE legs
+      physics Physics {
+        density 50
+        mass 1
+      }
+    }
+    Solid {
+      translation 0 0.16 0
+      children [
+        DEF legs Shape {
+          geometry Box {
+            size 0.1 0.01 0.1
+          }
+        }
+      ]
+      boundingObject USE legs
+      physics Physics {
+        mass 1
+      }
+    }
+  ]
+  physics Physics {
+  }
+  linearVelocity -9.293293209995744e-18 -5.013410701305273e-18 0
+  angularVelocity 8.766444990445724e-17 -1.5075021268388806e-16 8.978031775368914e-20
+}
+Robot {
+  translation 0.9466566983193707 -0.8484885193150025 0.08429049768319251
+  rotation -0.0004319089903802812 -0.00027832177022404117 0.9999998679957993 0.680317695630438
+  children [
+    SliderJoint {
+      jointParameters JointParameters {
+        position -0.08610307292127958
+        axis 0 1 0
+      }
+      device [
+        LinearMotor {
+          name "lm"
+          minPosition -0.08610307292127958
+          maxPosition 1
+          maxForce 5
+        }
+      ]
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 5371.545783242492
+        axis 0 1 0
+        anchor 0.19 -0.16 -0.04
+      }
+      device [
+        RotationalMotor {
+          name "motor1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.189990273684392 -0.1599956249382466 -0.03992559474793163
+        rotation 0.9219119770252449 -0.2739322863884634 0.2739332201310988 1.6520158965969531
+        children [
+          DEF tyre Shape {
+            geometry Cylinder {
+              height 0.03
+              radius 0.05
+            }
+          }
+        ]
+        boundingObject USE tyre
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 5371.336676652947
+        axis 0 1 0
+        anchor -0.19 -0.16 -0.04
+      }
+      device [
+        RotationalMotor {
+          name "motor2"
+        }
+      ]
+      endPoint Solid {
+        translation -0.19000794325390402 -0.15999565074765254 -0.039926272484944805
+        rotation 0.8624315172353078 -0.35791829739229686 0.3579195027810083 1.7182619566362969
+        children [
+          DEF tyre Shape {
+            geometry Cylinder {
+              height 0.03
+              radius 0.05
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE tyre
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 5371.210442229253
+        axis 0 1 0
+        anchor -0.19 0.16 -0.04
+      }
+      device [
+        RotationalMotor {
+          name "motor3"
+        }
+      ]
+      endPoint Solid {
+        translation -0.19000835731793114 0.16000437589231842 -0.03992441881791804
+        rotation 0.8213443484596064 -0.40335615200413627 0.40335750382741237 1.7663541511047434
+        children [
+          DEF tyre Shape {
+            geometry Cylinder {
+              height 0.03
+              radius 0.05
+            }
+          }
+        ]
+        name "solid(3)"
+        boundingObject USE tyre
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 5370.962519922305
+        axis 0 1 0
+        anchor 0.19 0.16 -0.04
+      }
+      device [
+        RotationalMotor {
+          name "motor4"
+        }
+      ]
+      endPoint Solid {
+        translation 0.18998985955553724 0.16000440170173436 -0.039923741182486296
+        rotation 0.7331944912676647 -0.48084524463747175 0.4808468453512825 1.8762789083744138
+        children [
+          DEF tyre Shape {
+            geometry Cylinder {
+              height 0.03
+              radius 0.05
+            }
+          }
+        ]
+        name "solid(4)"
+        boundingObject USE tyre
+        physics Physics {
+        }
+      }
+    }
+    SliderJoint {
+      jointParameters JointParameters {
+        position 0.2500000131689217
+        axis 0 1 0
+      }
+      device [
+        PositionSensor {
+          name "ps"
+          noise 1
+        }
+        LinearMotor {
+          name "lm"
+          maxPosition 1
+          maxForce 5
+        }
+      ]
+      endPoint Solid {
+        translation 0.16999998701026542 0.26000003074074324 0.11099638966893047
+        rotation -0.8494950063968167 0.5275966426985108 0.00012930634977867086 1.8887741849935245e-06
+        children [
+          Solid {
+            translation -0.36 0 0
+            children [
+              Shape {
+                geometry Box {
+                  size 0.03 0.28 0.01
+                }
+              }
+            ]
+            name "solid(1)"
+            boundingObject Shape {
+              geometry Box {
+                size 0.03 0.28 0.01
+              }
+            }
+            physics Physics {
+            }
+          }
+          Solid {
+            translation -0.18 -0.14 0
+            rotation 0 0 1 1.5707996938995747
+            children [
+              DEF joint1 Shape {
+                geometry Box {
+                  size 0.04 0.33 0.01
+                }
+              }
+            ]
+            boundingObject USE joint1
+            physics Physics {
+            }
+          }
+          DEF slider Shape {
+            appearance PBRAppearance {
+            }
+            geometry Box {
+              size 0.026 0.29 0.002
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE slider
+        physics Physics {
+        }
+      }
+    }
+    Pose {
+      translation 0 0 0.035
+      children [
+        DEF body Shape {
+          appearance PBRAppearance {
+            baseColor 1 1 0.498039
+            metalness 0
+          }
+          geometry Box {
+            size 0.6 0.3 0.15
+          }
+        }
+      ]
+    }
+  ]
+  name "robot(3)"
+  boundingObject USE body
+  physics Physics {
+  }
+  controller "<none>"
+  linearVelocity 1.182625451336158e-12 -7.531175417092594e-13 -3.7775006165717145e-09
+  angularVelocity 8.174377949220133e-12 1.2385012150349007e-11 1.5968472408681894e-13
+}
+Robot {
+  translation 6.663831461428912 0.8262874669459686 0.0942540145781188
+  rotation -0.0026735359576730866 -0.0009358526792812551 0.9999959881845755 0.6940398992840213
+  children [
+    SliderJoint {
+      jointParameters JointParameters {
+        position 0.18
+      }
+      device [
+        PositionSensor {
+          name "psPickup"
+        }
+        LinearMotor {
+          name "pickupMotor"
+          acceleration 1
+          maxForce 100
+        }
+      ]
+      endPoint Solid {
+        translation -1.2585802355857822e-07 0.19999783648726766 -0.05000505899374533
+        rotation -0.9980012959870053 0.06319231886017303 -0.00037953304494851457 4.3713751543504695e-05
+        children [
+          DEF slider-bdy Shape {
+            appearance PBRAppearance {
+              baseColorMap ImageTexture {
+                url [
+                  "C:/Users/HP/Downloads/Metal floor plate dirty texture 4770x3178.jpg"
+                ]
+              }
+              metalness 0
+            }
+            geometry Box {
+              size 0.23 0.2 0.001
+            }
+          }
+        ]
+        name "solid(5)"
+        boundingObject USE slider-bdy
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 5894.473692346343
+        axis 0 1 0
+        anchor 0.19 -0.16 -0.04
+      }
+      device [
+        RotationalMotor {
+          name "motor1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.19001798192132 -0.15999654122179008 -0.03977102298508637
+        rotation 0.8435933272205649 0.37970009005831035 -0.3797079665725329 1.740053139004495
+        children [
+          DEF tyre Shape {
+            geometry Cylinder {
+              height 0.03
+              radius 0.06
+            }
+          }
+        ]
+        boundingObject USE tyre
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 5892.165279502141
+        axis 0 1 0
+        anchor -0.19 -0.16 -0.04
+      }
+      device [
+        RotationalMotor {
+          name "motor2"
+        }
+      ]
+      endPoint Solid {
+        translation -0.1900087157116022 -0.15999108924491878 -0.03976130182565325
+        rotation 0.6189866978298827 -0.5553567472428325 0.5553686624230058 2.0330524770229075
+        children [
+          DEF tyre Shape {
+            geometry Cylinder {
+              height 0.03
+              radius 0.06
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE tyre
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 5891.765788737225
+        axis 0 1 0
+        anchor -0.19 0.16 -0.04
+      }
+      device [
+        RotationalMotor {
+          name "motor3"
+        }
+      ]
+      endPoint Solid {
+        translation -0.19000980842554469 0.16000880315738275 -0.03977402127343844
+        rotation 0.46568566544582585 -0.6257475600695965 0.6257610183330578 2.269938691011136
+        children [
+          DEF tyre Shape {
+            geometry Cylinder {
+              height 0.03
+              radius 0.06
+            }
+          }
+        ]
+        name "solid(3)"
+        boundingObject USE tyre
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 5894.7855182274125
+        axis 0 1 0
+        anchor 0.19 0.16 -0.04
+      }
+      device [
+        RotationalMotor {
+          name "motor4"
+        }
+      ]
+      endPoint Solid {
+        translation 0.19002478120413036 0.16000348406548515 -0.039799672698997694
+        rotation 0.7343805285407038 0.4799352237081404 -0.4799452264003612 1.8747203120879088
+        children [
+          DEF tyre Shape {
+            geometry Cylinder {
+              height 0.03
+              radius 0.06
+            }
+          }
+        ]
+        name "solid(4)"
+        boundingObject USE tyre
+        physics Physics {
+        }
+      }
+    }
+    SliderJoint {
+      jointParameters JointParameters {
+        position 6.8018653858615e-10
+        axis 0 1 0
+        staticFriction 1
+      }
+      device [
+        PositionSensor {
+          name "ps"
+          noise 1
+        }
+        LinearMotor {
+          name "lm"
+          acceleration 1
+          maxPosition 0.25000000000533235
+          maxForce 5
+        }
+      ]
+      endPoint Solid {
+        translation 0.134 0.00999999999963633 0.09
+        rotation -0.7576303859586744 0.6526835605829552 0.0006066439364601466 1.98811204283646e-06
+        children [
+          Solid {
+            translation -0.149 -0.14 0
+            rotation 0 0 1 1.5707996938995747
+            children [
+              USE slider
+            ]
+            name "solid(2)"
+          }
+          Solid {
+            translation -0.3 0 0
+            children [
+              DEF slider2 Shape {
+                appearance PBRAppearance {
+                  baseColorMap ImageTexture {
+                    url [
+                      "C:/Users/HP/Downloads/Metal floor plate dirty texture 4770x3178.jpg"
+                    ]
+                  }
+                  metalness 0
+                }
+                geometry Box {
+                  size 0.03 0.29 0.002
+                }
+              }
+            ]
+            boundingObject USE slider2
+            physics Physics {
+            }
+          }
+          DEF slider Shape {
+            appearance PBRAppearance {
+              baseColorMap ImageTexture {
+                url [
+                  "C:/Users/HP/Downloads/Metal floor plate dirty texture 4770x3178.jpg"
+                ]
+              }
+              metalness 0
+            }
+            geometry Box {
+              size 0.03 0.3 0.002
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE slider
+        physics Physics {
+        }
+      }
+    }
+    Pose {
+      translation 0 0 0.01
+      children [
+        Solid {
+          translation 0 0 0.07
+          children [
+            DEF cushion Shape {
+              appearance PBRAppearance {
+                baseColorMap ImageTexture {
+                  url [
+                    "C:/Users/HP/Downloads/360_F_338145328_POWWRCPh4LpTNB5lLnFVp4sutmoxZ1Eo.jpg"
+                  ]
+                }
+                metalness 0
+              }
+              geometry Box {
+                size 0.6 0.3 0.01
+              }
+            }
+          ]
+          name "solid(6)"
+          boundingObject USE cushion
+          physics Physics {
+          }
+        }
+        DEF body Shape {
+          appearance PBRAppearance {
+            baseColorMap ImageTexture {
+              url [
+                "C:/Users/HP/Downloads/124032577-aluminum-sheet-painted-white-texture-and-seamless-background.jpg"
+              ]
+              filtering 1
+            }
+            metalness 0
+          }
+          geometry Box {
+            size 0.6 0.3 0.13
+          }
+        }
+      ]
+    }
+  ]
+  name "robot(4)"
+  boundingObject USE body
+  physics Physics {
+  }
+  controller "slider"
+}
+Robot {
+  translation 3.227614638456625 1.9140049096813703 0.09553929576371549
+  rotation 0.4231273295121172 -0.4327607130855609 -0.7960410970732736 1.7923134240132936
+  children [
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 54906.80497040136
+        anchor 0.055 0 -0.05
+      }
+      device [
+        RotationalMotor {
+          name "right_motor"
+        }
+      ]
+      endPoint Solid {
+        translation 0.055 0 -0.05
+        rotation 0.637802251136377 -0.43175611099421024 0.6378047891514496 3.956748134512135
+        children [
+          DEF tyre Shape {
+            geometry Cylinder {
+              height 0.011
+              radius 0.05
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE tyre
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 54906.837077920216
+        anchor -0.055 0 -0.05
+      }
+      device [
+        RotationalMotor {
+          name "left_motor"
+        }
+      ]
+      endPoint Solid {
+        translation -0.055 0 -0.05
+        rotation 0.6336141936780009 -0.44391823973338895 0.6336163271269027 3.9771598277226454
+        children [
+          DEF tyre Shape {
+            geometry Cylinder {
+              height 0.011
+              radius 0.05
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE tyre
+        physics Physics {
+        }
+      }
+    }
+    Pose {
+      children [
+        DEF body Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.1 0.1 0.2
+          }
+        }
+      ]
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 64.14952908758112
+        anchor 0.08 0 0.05
+      }
+      device [
+        RotationalMotor {
+          name "motor"
+        }
+        PositionSensor {
+          name "ps"
+        }
+      ]
+      endPoint Solid {
+        translation 0.08 9.895884757813873e-07 0.05000489603956412
+        rotation 1 0 0 1.1867787492233621
+        children [
+          DEF axle Shape {
+            appearance PBRAppearance {
+              baseColor 0.431373 0.439216 1
+              metalness 0
+            }
+            geometry Box {
+              size 0.066 0.05 0.05
+            }
+          }
+          Solid {
+            translation 0.061 0 0.08
+            children [
+              DEF arm Shape {
+                appearance PBRAppearance {
+                  baseColor 0.419608 0.411765 0.498039
+                  metalness 0
+                }
+                geometry Box {
+                  size 0.056 0.051 0.21
+                }
+              }
+            ]
+            boundingObject USE arm
+            physics Physics {
+            }
+          }
+        ]
+        boundingObject USE axle
+        physics Physics {
+        }
+      }
+    }
+  ]
+  boundingObject USE body
+  physics Physics {
+  }
+  controller "arm"
+  linearVelocity 0.05662669961578906 -0.0003797032636015012 0.03331911482726887
+  angularVelocity 0.008277452125244068 0.5911235380664097 -0.007602581844713876
+}
+Robot {
+  translation -0.9812145349605661 -0.6058462005413489 0.09942787327172944
+  rotation 0.006425776781362957 0.0010620188347155114 -0.9999787905294547 1.571067649818574
+  children [
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 46988.387450862065
+        anchor 0.055 0 -0.05
+      }
+      device [
+        RotationalMotor {
+          name "right_motor"
+        }
+      ]
+      endPoint Solid {
+        translation 0.055 0 -0.05
+        rotation 0.6994404393966356 0.14684090019656218 0.6994432226893793 2.8499959159695023
+        children [
+          DEF tyre Shape {
+            geometry Cylinder {
+              height 0.011
+              radius 0.05
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE tyre
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 46988.416504387904
+        anchor -0.055 0 -0.05
+      }
+      device [
+        RotationalMotor {
+          name "left_motor"
+        }
+      ]
+      endPoint Solid {
+        translation -0.055 0 -0.05
+        rotation 0.7004902137186657 0.13646837205650372 0.7004925723465067 2.8703324833412656
+        children [
+          DEF tyre Shape {
+            geometry Cylinder {
+              height 0.011
+              radius 0.05
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE tyre
+        physics Physics {
+        }
+      }
+    }
+    Pose {
+      children [
+        DEF body Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.1 0.1 0.2
+          }
+        }
+      ]
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 63.696456479154946
+        anchor 0.08 0 0.05
+      }
+      device [
+        RotationalMotor {
+          name "motor"
+        }
+        PositionSensor {
+          name "ps"
+        }
+      ]
+      endPoint Solid {
+        translation 0.08 3.0328896745722913e-06 0.05000396888762586
+        rotation 1 0 0 0.7337061407972304
+        children [
+          DEF axle Shape {
+            appearance PBRAppearance {
+              baseColor 0.431373 0.439216 1
+              metalness 0
+            }
+            geometry Box {
+              size 0.066 0.05 0.05
+            }
+          }
+          Solid {
+            translation 0.061 0 0.08
+            children [
+              DEF arm Shape {
+                appearance PBRAppearance {
+                  baseColor 0.419608 0.411765 0.498039
+                  metalness 0
+                }
+                geometry Box {
+                  size 0.056 0.051 0.21
+                }
+              }
+            ]
+            boundingObject USE arm
+            physics Physics {
+            }
+          }
+        ]
+        boundingObject USE axle
+        physics Physics {
+        }
+      }
+    }
+  ]
+  name "robot(2)"
+  boundingObject USE body
+  physics Physics {
+  }
+  controller "arm"
+  linearVelocity -0.08037725171109805 -0.00040264645840996856 8.13055323798159e-05
+  angularVelocity 0.00034738687899947334 -0.01541976818738684 -0.007295187829226904
+}
+Robot {
+  translation 1.0128840048964691 1.7411332789732206 0.09948007384883638
+  rotation -0.09296603701199403 0.9956681650996945 -0.0014902916802918417 0.0018527593241165277
+  children [
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 54912.59869550252
+        anchor 0.055 0 -0.05
+      }
+      device [
+        RotationalMotor {
+          name "right_motor"
+        }
+      ]
+      endPoint Solid {
+        translation 0.0552366248094891 2.362060345683285e-05 -0.049972635830480935
+        rotation 0.6908829266937286 -0.24975383234856782 0.6784569292374509 3.6326954329279495
+        children [
+          DEF tyre Shape {
+            geometry Cylinder {
+              height 0.011
+              radius 0.05
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE tyre
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 54912.81275778634
+        anchor -0.055 0 -0.05
+      }
+      device [
+        RotationalMotor {
+          name "left_motor"
+        }
+      ]
+      endPoint Solid {
+        translation -0.05522240078606644 -2.1660411992557653e-05 -0.04999692432191947
+        rotation 0.6743001605800322 -0.32767694974563194 0.6617757248850561 3.7789021998900214
+        children [
+          DEF tyre Shape {
+            geometry Cylinder {
+              height 0.011
+              radius 0.05
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE tyre
+        physics Physics {
+        }
+      }
+    }
+    Pose {
+      children [
+        Solid {
+          translation 0 -0.2 0.106
+          children [
+            Shape {
+              geometry Box {
+                size 0.17 0.5 0.014
+              }
+            }
+          ]
+          name "solid(3)"
+        }
+        Robot {
+          translation 0 -0.45 0
+          rotation 0.004037316575196424 0.004300116428409859 -0.9999826043854831 0
+          children [
+            HingeJoint {
+              jointParameters HingeJointParameters {
+                position 21419.077303141545
+                anchor 0.055 0 -0.05
+              }
+              device [
+                RotationalMotor {
+                  name "right_motor"
+                }
+              ]
+              endPoint Solid {
+                translation 0.0550188 5.639928074195494e-06 -0.049981437909295615
+                rotation -0.14847827974294697 0.977713434891214 -0.14842722013767937 1.593586462850493
+                children [
+                  DEF tyre Shape {
+                    geometry Cylinder {
+                      height 0.011
+                      radius 0.05
+                    }
+                  }
+                ]
+                name "solid(2)"
+                boundingObject USE tyre
+                physics Physics {
+                }
+              }
+            }
+            HingeJoint {
+              jointParameters HingeJointParameters {
+                position 21419.053186569134
+                anchor -0.055 0 -0.05
+              }
+              device [
+                RotationalMotor {
+                  name "left_motor"
+                }
+              ]
+              endPoint Solid {
+                translation -0.055 0 -0.05
+                rotation -0.15996608725476108 0.9740837531032457 -0.15991151574760828 1.5973118392794414
+                children [
+                  DEF tyre Shape {
+                    geometry Cylinder {
+                      height 0.011
+                      radius 0.05
+                    }
+                  }
+                ]
+                name "solid(1)"
+                boundingObject USE tyre
+                physics Physics {
+                }
+              }
+            }
+            Pose {
+              children [
+                DEF body Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.666667 0.666667 1
+                    metalness 0
+                  }
+                  geometry Box {
+                    size 0.1 0.1 0.2
+                  }
+                }
+              ]
+            }
+            HingeJoint {
+              jointParameters HingeJointParameters {
+                position 63.31924103837094
+                anchor 0.08 0 0.05
+              }
+              device [
+                RotationalMotor {
+                  name "motor"
+                }
+                PositionSensor {
+                  name "ps"
+                }
+              ]
+            }
+          ]
+          name "robot(2)"
+          boundingObject USE body
+          physics Physics {
+          }
+          controller "arm"
+        }
+        DEF body Shape {
+          appearance PBRAppearance {
+            baseColor 0.666667 0.666667 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.1 0.1 0.2
+          }
+        }
+      ]
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 63.92621782300757
+        anchor 0.08 0 0.05
+      }
+      device [
+        RotationalMotor {
+          name "motor"
+        }
+        PositionSensor {
+          name "ps"
+        }
+      ]
+      endPoint Solid {
+        translation 0.08069466382736801 -0.0004045524972597454 0.05040677597361333
+        rotation 0.9999959591881337 0.0027611527201231107 0.0006764932081877145 0.9634787778540035
+        children [
+          DEF axle Shape {
+            appearance PBRAppearance {
+              baseColor 0.431373 0.439216 1
+              metalness 0
+            }
+            geometry Box {
+              size 0.066 0.05 0.05
+            }
+          }
+          Solid {
+            translation 0.053 0 0.08
+            children [
+              DEF arm Shape {
+                appearance PBRAppearance {
+                  baseColor 0.419608 0.411765 0.498039
+                  metalness 0
+                }
+                geometry Box {
+                  size 0.04 0.032 0.21
+                }
+              }
+            ]
+            boundingObject USE arm
+            physics Physics {
+            }
+          }
+        ]
+        boundingObject USE axle
+        physics Physics {
+        }
+      }
+    }
+  ]
+  name "robot(1)"
+  boundingObject USE body
+  physics Physics {
+  }
+  controller "arm"
+  linearVelocity 0.0001648000972160841 -1.099910283454619e-05 -4.993859357796281e-06
+  angularVelocity 9.341623396824212e-06 0.0016526268946354245 8.186856898461884e-07
+}
