@@ -1,4 +1,4 @@
-from controller import Robot, Motor
+from controller import Robot, Motor # type: ignore
 
 # Create a robot instance
 robot = Robot()
@@ -41,8 +41,18 @@ motor2.setVelocity(0.0)
 motor3.setVelocity(0.0)
 motor4.setVelocity(0.0)
 
+ds_f = robot.getDevice('ds_f')
+ds_f.enable(timestep)
+ds_r = robot.getDevice('ds_r')
+ds_r.enable(timestep)
+ds_l = robot.getDevice('ds_l')
+ds_l.enable(timestep)
+
+
+
 # Set up the maximum motor velocity
 max_velocity = 8.28
+max_turn_velocity = 3.30
 # if pickUpMotor is None:
 #     print("Error: Could not find linear motor device 'lm2'")
 # elif pickUpMotor is not None:
@@ -70,6 +80,11 @@ while robot.step(timestep) != -1:
         #     reached = True
         
     # If the motor has moved away from the normal position
+    ds_l_val = ds_l.getValue()
+    ds_r_val = ds_r.getValue()
+    ds_f_val = ds_f.getValue()
+    print(f'left: {ds_l_val}, right: {ds_r_val}, front: {ds_f_val}')
+
     if readyToPush and i > 30:
         if not readyToPullBack:
             pullBackMotor.setPosition(target_pull_position)
@@ -89,3 +104,53 @@ while robot.step(timestep) != -1:
                 motor2.setVelocity(max_velocity)
                 motor3.setVelocity(max_velocity)
                 motor4.setVelocity(max_velocity)
+
+                # time.sleep(10)
+                # pullBackMotor.setPosition(target_pull_position)
+                # pullBackMotor.setVelocity(target_velocity)
+
+                # if ds_l_val >= ds_r_val :
+                #     motor1.setVelocity(max_velocity)
+                #     motor2.setVelocity(-max_velocity)
+                #     motor3.setVelocity(-max_velocity)
+                #     motor4.setVelocity(max_velocity)
+                #     print("turning left")
+                # if ds_l_val <= ds_r_val :
+                #      motor1.setVelocity(max_velocity)
+                #      motor2.setVelocity(-max_velocity)
+                #      motor3.setVelocity(max_velocity)
+                #      motor4.setVelocity(-max_velocity)
+                #      print("turning RIGHT")
+
+            
+
+                # if ds_r_val >= 166 :
+                #     motor1.setVelocity(max_velocity)
+                #     motor2.setVelocity(max_velocity)
+                #     motor3.setVelocity(max_velocity)
+                #     motor4.setVelocity(max_velocity)
+                #     print("turning front")
+
+                if ds_f_val == 206.339 and ds_l_val == 168.71  and ds_r_val == 243.968 :
+                    motor1.setVelocity(max_velocity * 0.8)
+                    motor2.setVelocity(max_velocity)
+                    motor3.setVelocity(max_velocity)
+                    motor4.setVelocity(max_velocity * 0.8)
+                    print("turning front") 
+                    
+                if ds_f_val < 0.2:  # If obstacle detected in front
+                     if ds_l_val < ds_r_val:  # If more space on the left
+                        motor1.setVelocity(-max_turn_velocity)
+                        motor2.setVelocity(max_turn_velocity)
+                        motor3.setVelocity(max_turn_velocity)
+                        motor4.setVelocity(-max_turn_velocity)
+                     else:  # If more space on the right or equal
+                        motor1.setVelocity(max_turn_velocity)
+                        motor2.setVelocity(-max_turn_velocity)
+                        motor3.setVelocity(-max_turn_velocity)
+                        motor4.setVelocity(max_turn_velocity)
+                else:  # Move forward
+                    motor1.setVelocity(max_velocity)
+                    motor2.setVelocity(max_velocity)
+                    motor3.setVelocity(max_velocity)
+                    motor4.setVelocity(max_velocity)
